@@ -39,7 +39,6 @@ jobs:
         env:
           DATABRICKS_CLIENT_SECRET: ${{ secrets.DEV_RETAIL_SP_SECRET }}
           DATABRICKS_CLIENT_ID: "${{ vars.DEV_RETAIL_SP_CLIENT_ID }}"
-          DATABRICKS_HOST: "${{ vars.DEV_DATABRICKS_HOST }}"
           DATABRICKS_BUNDLE_ENV: dev
 
   # Validate, deploy, and then run the bundle.
@@ -65,5 +64,4 @@ jobs:
         env:
           DATABRICKS_CLIENT_SECRET: ${{ secrets.DEV_RETAIL_SP_SECRET }}
           DATABRICKS_CLIENT_ID: "${{ vars.DEV_RETAIL_SP_CLIENT_ID }}"
-          DATABRICKS_HOST: "${{ vars.DEV_DATABRICKS_HOST }}"
           DATABRICKS_BUNDLE_ENV: dev
