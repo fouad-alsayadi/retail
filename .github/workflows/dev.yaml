@@ -37,7 +37,8 @@ jobs:
       - run: databricks bundle deploy
         working-directory: .
         env:
-          DATABRICKS_TOKEN: ${{ secrets.DEV_RETAIL_SP_SECRET }}
+          DATABRICKS_CLIENT_SECRET: ${{ secrets.DEV_RETAIL_SP_SECRET }}
+          DATABRICKS_CLIENT_ID: "${{ vars.DEV_RETAIL_SP_CLIENT_ID }}"
           DATABRICKS_BUNDLE_ENV: dev
 
   # Validate, deploy, and then run the bundle.
