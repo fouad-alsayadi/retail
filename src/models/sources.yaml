@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: source_db
+    database: prod_main
+    schema: retail
+    tables:
+      - name: bronze_customer
+      - name: bronze_line_item
+      - name: bronze_order
