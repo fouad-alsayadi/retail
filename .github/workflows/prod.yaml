@@ -33,7 +33,6 @@ jobs:
         env:
           DATABRICKS_CLIENT_SECRET: ${{ secrets.PROD_RETAIL_SP_SECRET }}      
           DATABRICKS_CLIENT_ID: "${{vars.PROD_RETAIL_SP_CLIENT_ID}}"
-          DATABRICKS_HOST: "${{vars.PROD_DATABRICKS_HOST}}"
           DATABRICKS_BUNDLE_ENV: prod
 
   # Validate, deploy, and then run the bundle.
@@ -58,6 +57,5 @@ jobs:
         working-directory: .
         env:
           DATABRICKS_CLIENT_SECRET: ${{ secrets.PROD_RETAIL_SP_SECRET }}
-          DATABRICKS_CLIENT_ID: "${{vars.PROD_RETAIL_SP_CLIENT_ID}}"
-          DATABRICKS_HOST: "${{vars.PROD_DATABRICKS_HOST}}"
+          DATABRICKS_CLIENT_ID: "${{vars.PROD_RETAIL_SP_CLIENT_ID}}"          
           DATABRICKS_BUNDLE_ENV: prod
