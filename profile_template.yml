@@ -4,7 +4,7 @@
 fixed:
   type: databricks
   auth_type: oauth
-  host: dbc-22ecb965-8738.cloud.databricks.com
+  host: dbc-22ecb965-8738.cloud.databricks.com # dvelopment environment
   threads: 4
 prompts:
   http_path:

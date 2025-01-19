@@ -15,7 +15,7 @@ retail:
       method: http
       catalog: dev_main
       schema: "{{ var('dev_schema') }}"
-
+      threads: 4
       http_path: /sql/1.0/warehouses/f9bbf8e46c5bed76
 
       # The workspace host / token are provided by Databricks
@@ -27,10 +27,10 @@ retail:
     prod:
       type: databricks
       method: http
-      catalog: dev_main
-      schema: default
-
-      http_path: /sql/1.0/warehouses/f9bbf8e46c5bed76
+      catalog: prod_main  
+      schema: retail
+      threads: 4
+      http_path: /sql/1.0/warehouses/175d73f8c056779d
 
       # The workspace host / token are provided by Databricks
       # see databricks.yml for the workspace host used for 'prod'

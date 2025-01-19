@@ -23,11 +23,10 @@ targets:
   prod:
     mode: production
     workspace:
-      host: https://dbc-22ecb965-8738.cloud.databricks.com
-      # We explicitly specify /Workspace/Users/fouad.alsayadi@databricks.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/fouad.alsayadi@databricks.com/.bundle/${bundle.name}/${bundle.target}
+      host: https://dbc-23c16894-0c37.cloud.databricks.com
+      root_path: /Workspace/deployments/prod/.bundle/${bundle.name}/${bundle.target}
     permissions:
       - user_name: fouad.alsayadi@databricks.com
         level: CAN_MANAGE
     run_as:
-      user_name: fouad.alsayadi@databricks.com
+      service_principal_name: "7d52d95b-ad2a-4751-821d-8ee8a0e73431"
