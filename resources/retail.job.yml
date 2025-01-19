@@ -1,0 +1,37 @@
+resources:
+  jobs:
+    retail_job:
+      name: retail_job
+
+      trigger:
+      schedule:
+        quartz_cron_expression: 0 0 2 * * ? # every day at 2am
+        timezone_id: UTC
+
+      email_notifications:
+        on_failure:
+          - fouad.alsayadi@databricks.com
+
+
+      tasks:
+        - task_key: dbt
+
+          dbt_task:
+            project_directory: ../
+            # The default schema, catalog, etc. are defined in ../dbt_profiles/profiles.yml
+            profiles_directory: dbt_profiles/
+            commands:
+            # The dbt commands to run (see also dbt_profiles/profiles.yml; dev_schema is used in the dev profile)
+            - 'dbt deps --target=${bundle.target}'
+            - 'dbt seed --target=${bundle.target} --vars "{ dev_schema: ${workspace.current_user.short_name} }"'
+            - 'dbt run --target=${bundle.target} --vars "{ dev_schema: ${workspace.current_user.short_name} }"'
+          environment_key: dbt-default
+
+      queue:
+        enabled: true
+      environments:
+        - environment_key: dbt-default
+          spec:
+            client: "2"
+            dependencies:
+              - dbt-databricks>=1.0.0,<2.0.0
